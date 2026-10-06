@@ -6,542 +6,389 @@
 }
 
 :root {
-  --bg-page: #F8FAFC;
-  --bg-white: #FFFFFF;
-  --color-dark-navy: #071A3D;
-  --color-primary-text: #111827;
-  --color-secondary-text: #64748B;
-  --color-primary-blue: #1E40AF;
-  --color-action-blue: #2563EB;
-  --color-light-blue: #3B82F6;
-  --color-success-green: #16C45A;
-  --color-verify-hover: #12A150;
-  --color-border: #E2E8F0;
-  --color-secondary-border: #CBD5E1;
-  --color-profile-bg: #F1F5F9;
-  --color-linkedin: #0A66C2;
-  --color-facebook: #1877F2;
-  --color-twitter: #1DA1F2;
-  --shadow-subtle: 0 2px 8px rgba(15, 23, 42, 0.08);
-  --shadow-qr: 0 1px 4px rgba(15, 23, 42, 0.06);
+  --bg-page: #ECEFF3;
+  --bg-card: #FFFFFF;
+  --text-dark: #1E293B;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+  --color-coral: #E05A47;
+  --color-coral-hover: #D04936;
+  --color-link: #2563EB;
+  --border-light: #E2E8F0;
+  --shadow-card: 0 4px 25px rgba(0, 0, 0, 0.07);
 }
 
 html, body {
   width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--bg-page);
-  color: var(--color-primary-text);
+  color: var(--text-dark);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Page Outer Wrapper */
-.certificate-page {
+.certificate-page-wrap {
   min-height: 100vh;
   width: 100%;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--bg-page);
-  overflow-x: hidden;
-}
-
-/* --------------------------------------------------
-   HEADER
-   -------------------------------------------------- */
-.header {
-  background-color: var(--bg-white);
-  border-bottom: 1px solid var(--color-border);
-  height: 54px;
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.header-container {
-  width: 100%;
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-}
-
-.header-logo-group {
-  display: flex;
-  align-items: center;
-}
-
-.header-logo {
-  height: 34px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-
-/* --------------------------------------------------
-   MAIN CONTENT WRAPPER
-   -------------------------------------------------- */
-.main-viewport {
-  flex: 1;
-  width: 100%;
-  max-width: 100%;
-  padding-bottom: 60px;
-}
-
-.content-container {
-  width: 100%;
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* --------------------------------------------------
-   STUDENT INFORMATION SECTION
-   -------------------------------------------------- */
-.student-info-section {
-  margin-top: 28px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.student-profile-group {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  min-width: 0;
-}
-
-.profile-avatar-circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: var(--color-profile-bg);
-  border: 1px solid var(--color-secondary-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-secondary-text);
-  flex-shrink: 0;
+  padding: 40px 20px;
+  background-color: var(--bg-page);
 }
 
-.profile-avatar-icon {
-  color: #64748B;
+/* Main Card Container */
+.cert-main-card {
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+  width: 100%;
+  max-width: 1120px;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 36px;
+  align-items: start;
 }
 
-.student-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  min-width: 0;
-}
-
-.issued-statement {
-  font-size: 14px;
-  color: #334155;
-  font-weight: 400;
-  word-break: break-word;
-}
-
-.student-name {
-  color: var(--color-primary-blue);
-  font-weight: 600;
-}
-
-.issue-date {
-  font-size: 13px;
-  color: var(--color-secondary-text);
-  font-weight: 400;
-}
-
-.student-verify-action {
+/* Left: Certificate Preview */
+.cert-preview-box {
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+  background: #0F172A;
+}
+
+.cert-preview-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Right: Content Section */
+.cert-content-section {
+  display: flex;
+  flex-direction: column;
+  padding-top: 6px;
+}
+
+.badge-issuer {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cert-main-title {
+  font-size: 27px;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+/* Bullet list */
+.cert-curriculum-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cert-curriculum-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.cert-bullet-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #475569;
+  margin-top: 8px;
   flex-shrink: 0;
 }
 
-.btn-verify {
-  background-color: var(--color-success-green);
+/* Metadata section */
+.cert-metadata-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 28px;
+  padding-top: 14px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.cert-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cert-meta-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cert-meta-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1E293B;
+  font-family: inherit;
+}
+
+/* Action Buttons Row */
+.cert-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-share {
+  background-color: var(--color-coral);
   color: #FFFFFF;
   border: none;
-  border-radius: 8px;
-  padding: 9px 18px;
+  border-radius: 6px;
+  padding: 9px 20px;
+  font-size: 14px;
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  font-size: 14px;
-  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.15s ease-in-out;
-  box-shadow: 0 1px 2px rgba(22, 196, 90, 0.2);
-  white-space: nowrap;
+  transition: background-color 0.15s ease;
 }
 
-.btn-verify:hover {
-  background-color: var(--color-verify-hover);
+.btn-share:hover {
+  background-color: var(--color-coral-hover);
 }
 
-.verify-check-icon {
-  flex-shrink: 0;
-}
-
-/* --------------------------------------------------
-   MAIN CERTIFICATE LAYOUT GRID (DESKTOP)
-   -------------------------------------------------- */
-.certificate-layout-grid {
-  margin-top: 45px;
-  display: grid;
-  grid-template-columns: 360px 1fr;
-  grid-template-areas:
-    "preview details"
-    "actions .";
-  column-gap: 38px;
-  row-gap: 14px;
-  align-items: start;
-  width: 100%;
-}
-
-.cert-preview-area {
-  grid-area: preview;
-  width: 100%;
-  max-width: 360px;
-  min-width: 0;
-}
-
-.cert-details-area {
-  grid-area: details;
-  width: 100%;
-  max-width: 520px;
-  min-width: 0;
-}
-
-.cert-actions-area {
-  grid-area: actions;
-  width: 100%;
-  max-width: 360px;
-  min-width: 0;
-}
-
-/* --------------------------------------------------
-   CERTIFICATE PREVIEW CARD
-   -------------------------------------------------- */
-.certificate-card {
-  background-color: var(--bg-white);
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  box-shadow: var(--shadow-subtle);
-  padding: 9px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  width: 100%;
-  max-width: 100%;
-}
-
-.certificate-img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  border-radius: 4px;
-}
-
-/* --------------------------------------------------
-   RIGHT COLUMN DETAILS
-   -------------------------------------------------- */
-.certificate-details {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.certificate-heading {
-  color: var(--color-dark-navy);
-  font-size: 31px;
-  font-weight: 700;
-  line-height: 1.22;
-  margin: 0 0 16px 0;
-  letter-spacing: -0.3px;
-  word-break: break-word;
-  overflow-wrap: break-word;
-}
-
-.issuer-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 14px;
-}
-
-.issuer-label {
-  color: var(--color-secondary-text);
-  font-weight: 400;
-}
-
-.issuer-link {
-  color: var(--color-primary-blue);
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  transition: opacity 0.15s ease;
-}
-
-.issuer-link:hover {
-  text-decoration: underline;
-}
-
-.issuer-external-icon {
-  margin-top: 1px;
-}
-
-.certificate-divider {
-  border: none;
-  border-top: 1px solid var(--color-border);
-  margin-top: 20px;
-  width: 100%;
-}
-
-/* --------------------------------------------------
-   ACTION BUTTONS
-   -------------------------------------------------- */
-.action-buttons-container {
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
-  width: 100%;
-  max-width: 100%;
-}
-
-.primary-action-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  width: 100%;
-  max-width: 100%;
-}
-
-.btn-download {
-  width: 100%;
-  height: 43px;
-  background-color: var(--color-primary-blue);
-  color: #FFFFFF;
-  border: none;
-  border-radius: 7.5px;
+.btn-pdf {
+  background-color: #F8FAFC;
+  color: #334155;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  padding: 9px 20px;
   font-size: 14px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
+  gap: 7px;
   cursor: pointer;
-  white-space: nowrap;
-  transition: background-color 0.15s ease-in-out;
-  padding: 0 8px;
-}
-
-.btn-download:hover {
-  background-color: var(--color-action-blue);
-}
-
-.btn-copy {
-  width: 100%;
-  height: 43px;
-  background-color: var(--bg-white);
-  color: var(--color-primary-text);
-  border: 1px solid var(--color-secondary-border);
-  border-radius: 7.5px;
-  font-size: 14px;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  white-space: nowrap;
   transition: background-color 0.15s ease, border-color 0.15s ease;
-  padding: 0 8px;
 }
 
-.btn-copy:hover {
+.btn-pdf:hover {
   background-color: #F1F5F9;
   border-color: #94A3B8;
 }
 
-.btn-copy.is-copied {
-  background-color: #F0FDF4;
-  color: #15803D;
-  border-color: #86EFAC;
-}
-
-/* Social Buttons Row */
-.social-action-row {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 9px;
-  width: 100%;
-  max-width: 100%;
-}
-
-.btn-social {
-  width: 100%;
-  height: 40px;
-  color: #FFFFFF;
+.btn-public-link {
+  color: var(--color-link);
+  background: none;
   border: none;
-  border-radius: 7.5px;
-  font-size: 13.5px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   display: inline-flex;
   align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 9px 8px;
+  transition: opacity 0.15s ease;
+}
+
+.btn-public-link:hover {
+  text-decoration: underline;
+}
+
+/* Toast message */
+.cert-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #0F172A;
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 6px;
+  z-index: 1001;
+  padding: 16px;
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: #64748B;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.modal-close-btn:hover {
+  background-color: #F1F5F9;
+}
+
+.share-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.share-option-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.share-option-btn:hover {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.share-copy-box {
+  display: flex;
+  gap: 8px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 6px 6px 6px 12px;
+  align-items: center;
+}
+
+.share-copy-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  color: #475569;
+  outline: none;
+}
+
+.share-copy-btn {
+  background: #0F172A;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-  transition: opacity 0.15s ease, filter 0.15s ease;
-  padding: 0 4px;
 }
 
-.btn-social:hover {
-  filter: brightness(0.92);
-}
-
-.btn-linkedin {
-  background-color: var(--color-linkedin);
-}
-
-.btn-facebook {
-  background-color: var(--color-facebook);
-}
-
-.btn-twitter {
-  background-color: var(--color-twitter);
-}
-
-/* --------------------------------------------------
-   RESPONSIVE DESIGN (TABLET & MOBILE)
-   -------------------------------------------------- */
-@media (max-width: 820px) {
-  .certificate-layout-grid {
-    grid-template-columns: 320px 1fr;
-    column-gap: 28px;
+/* Responsive Styles */
+@media (max-width: 960px) {
+  .cert-main-card {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+    padding: 24px;
+    gap: 28px;
   }
-  .cert-preview-area,
-  .cert-actions-area {
-    max-width: 320px;
+
+  .certificate-page-wrap {
+    padding: 20px 14px;
   }
 }
 
-@media (max-width: 768px) {
-  .content-container,
-  .header-container {
-    padding: 0 16px;
+@media (max-width: 540px) {
+  .cert-main-title {
+    font-size: 22px;
   }
 
-  .certificate-layout-grid {
-    display: flex;
-    flex-direction: column;
-    margin-top: 32px;
-    width: 100%;
-    max-width: 100%;
-    gap: 0;
+  .cert-metadata-row {
+    gap: 20px;
   }
 
-  /* Order on Mobile:
-     1. Student info (top)
-     2. Verify button (top)
-     3. Certificate image
-     4. Certificate title
-     5. Issuer
-     6. Download / Copy Link & Social buttons
-  */
-  .cert-preview-area {
-    order: 3;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto 24px auto;
-  }
-
-  .cert-details-area {
-    order: 4;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto 24px auto;
-  }
-
-  .certificate-heading {
-    font-size: 24px;
-  }
-
-  .cert-actions-area {
-    order: 6;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto 28px auto;
-  }
-
-  .student-info-section {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .student-verify-action {
+  .cert-actions-row {
     width: 100%;
   }
 
-  .btn-verify {
-    width: 100%;
+  .btn-share, .btn-pdf {
+    flex: 1;
     justify-content: center;
-  }
-
-  .primary-action-row {
-    gap: 8px;
-  }
-
-  .btn-download,
-  .btn-copy {
-    font-size: 13px;
-    gap: 6px;
-    padding: 0 4px;
-    height: 42px;
-  }
-
-  .social-action-row {
-    gap: 6px;
-  }
-
-  .btn-social {
-    font-size: 12px;
-    gap: 4px;
-    padding: 0 2px;
-    height: 38px;
-  }
-}
-
-@media (max-width: 360px) {
-  .btn-download,
-  .btn-copy {
-    font-size: 11px;
-    padding: 0 2px;
-    gap: 3px;
-  }
-
-  .btn-social {
-    font-size: 10px;
-    padding: 0 1px;
-    gap: 2px;
   }
 }

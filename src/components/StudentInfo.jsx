@@ -1,7 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { UserRound, CheckCircle } from 'lucide-react';
 
-const StudentInfo = ({ studentName, issueDate }) => {
+const StudentInfo = ({ studentName, issueDate, studentId }) => {
   return (
     <section className="student-info-section">
       <div className="student-profile-group">

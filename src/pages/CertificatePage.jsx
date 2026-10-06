@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import StudentInfo from '../components/StudentInfo';
 import CertificatePreview from '../components/CertificatePreview';
@@ -14,6 +15,8 @@ const CERTIFICATE_DATA = {
 };
 
 const CertificatePage = () => {
+  const { studentId = "STU73f5e2a9c1840d6b927301598" } = useParams();
+
   return (
     <div className="certificate-page">
       <Header logo={CERTIFICATE_DATA.logo} />
@@ -24,6 +27,7 @@ const CertificatePage = () => {
           <StudentInfo
             studentName={CERTIFICATE_DATA.studentName}
             issueDate={CERTIFICATE_DATA.issueDate}
+            studentId={studentId}
           />
 
           {/* Main content grid */}

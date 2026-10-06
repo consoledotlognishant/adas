@@ -11,6 +11,9 @@ function App() {
         <Route path="/" element={<BlankPage />} />
 
         {/* CERTIFICATE: Dynamic student ID route */}
+        <Route path="/credential/:studentId" element={<CertificatePage />} />
+
+        {/* Alias to support previous spelling */}
         <Route path="/cridential/:studentId" element={<CertificatePage />} />
 
         {/* UNKNOWN ROUTES: Blank page */}
